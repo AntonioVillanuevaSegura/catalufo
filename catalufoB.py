@@ -1,5 +1,7 @@
 """
 Antonio Villanueva Segura 
+Una pequena ayuda para resolver paraulogic falta eliminar verbos 
+https://paraulogic.rodamots.cat/
 """
 
 
@@ -23,7 +25,8 @@ def testLineaB ( letras,obligatoria,linea):
 	for letraEnLinea in limpiar_acentos (linea.split("/")[0]):
 		if ( (letraEnLinea in letras) or (obligatoria== letraEnLinea)):
 			contiene +=1 #ha encontrado una ocurrencia
-		
+	
+	#Si la palabra contiene minimo 3 ocurrencias es aceptada	
 	if ( (contiene >=3)   and ( len(linea)== contiene)   ) :	
 		return True
 			
@@ -49,6 +52,4 @@ if __name__ == "__main__":
 	
 				if obligatoria  in linea:
 					print(linea.split("/")[0])
-				
-
 	
