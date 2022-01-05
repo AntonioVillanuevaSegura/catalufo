@@ -1,21 +1,18 @@
-
+# -*- coding: utf-8 -*-
 """
 Antonio Villanueva Segura 
 Una pequena ayuda para resolver paraulogic 
 https://paraulogic.rodamots.cat/
 """
 
-
 def limpiar_acentos(text):
 	""" elimina acentos de un string """
-	acentos = {'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u', 'Á': 'A',
-				'E': 'E', 'Í': 'I', 'Ó': 'O', 'Ú': 'U'}
+	acentos = {'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u', 'Á': 'A','E': 'E', 'Í': 'I', 'Ó': 'O', 'Ú': 'U'}
 	for acen in acentos:
 		if acen in text:
 			text = text.replace(acen, acentos[acen])
 	return text
-	
-	
+		
 def testLinea ( letras,obligatoria,linea):
 	""" mira si una palabra del diccionario contiene algunas  letras minimo 3 """
 
@@ -32,36 +29,22 @@ def testLinea ( letras,obligatoria,linea):
 		return True			
 	return False
 	
-def posibleVerbo (palabra):
-	""" Analiza posibles terminaciones verbales """	
-	with open ("verbos.txt", encoding="latin-1") as verbos:
-		#Recorre algunas terminaciones verbales
-
-		for verbo in verbos:
-			#print (palabra,"  ",verbo,"  ",palabra.rfind(verbo.strip()),end=" ")	
-			#Si -1 ha sido encontrada la terminacion 		
-			if  (palabra.rfind(verbo.strip()) != -1):
-				return " ? "
-				
-	return " - "
-				
 
 if __name__ == "__main__":
 
 	letras = input ("Introduce las letras ")
 	especial =input ("Introduce la letra central obligatoria ")
 
-	#letras="roeign"
-	#obligatoria="d"
+	#letras="anodrg"
+	#especial="f"
 
-	with open("catala.dic", encoding="latin-1") as fname:
+	#with open("catalaBig.dic", encoding="latin-1") as fname:
+	with open("catalaBig.dic") as fname:
 		# recorre las palabras del diccionario por lineas
 		for linea in fname:
-			
-			if testLinea(letras.strip(),especial,linea.split("/")[0]):		
+		
+			if testLinea(letras.strip(),especial,linea.strip()):		
 
 				if especial  in linea:
-						
-					print(linea.split("/")[0],end="")
-					print (posibleVerbo(linea.split("/")[0]))
+					print (linea)
 	
