@@ -1,6 +1,7 @@
+
 """
 Antonio Villanueva Segura 
-Una pequena ayuda para resolver paraulogic falta eliminar verbos 
+Una pequena ayuda para resolver paraulogic 
 https://paraulogic.rodamots.cat/
 """
 
@@ -57,11 +58,10 @@ if __name__ == "__main__":
 		# recorre las palabras del diccionario por lineas
 		for linea in fname:
 			
-			if testLinea(letras.strip(),obligatoria,linea.split("/")[0]):		
+			if testLinea(letras.strip(),especial,linea.split("/")[0]):		
 
-				if obligatoria  in linea:
+				if especial  in linea:
 						
 					print(linea.split("/")[0],end="")
 					print (posibleVerbo(linea.split("/")[0]))
 	
-
