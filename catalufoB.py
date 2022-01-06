@@ -28,12 +28,17 @@ def testLinea ( letras,obligatoria,linea):
 	if ( (contiene >=3)   and ( len(linea)== contiene)   ) :	
 		return True			
 	return False
-	
+
+def verConjunto(conjunto):
+	""" ver elementos no repetidos en el conjunto set """
+	for elemento in conjunto:
+		print (elemento.strip(),end=" , ")
 
 if __name__ == "__main__":
 
 	letras = input ("Introduce las letras ")
 	especial =input ("Introduce la letra central obligatoria ")
+	resultado={""}
 
 	#letras="anodrg"
 	#especial="f"
@@ -46,5 +51,7 @@ if __name__ == "__main__":
 			if testLinea(letras.strip(),especial,linea.strip()):		
 
 				if especial  in linea:
-					print (linea)
-	
+					#print (linea)
+					resultado.add(linea)
+					
+	verConjunto(resultado)
